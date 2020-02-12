@@ -19,6 +19,7 @@ int string_length(char* str){
   return counter;
 }
 
+//checks if its a valid char or if its '\n' or '\0'
 char is_valid_character(char c){
   
   if((c > 32 && c < 127)){
@@ -33,6 +34,7 @@ char is_valid_character(char c){
     
 }
 
+//find start of each word in a string
 char* word_start(char* str){ 
   
   while(is_valid_character(*str) == 0){
@@ -42,6 +44,7 @@ char* word_start(char* str){
     
 }
 
+//find end of a word once start of a word is found
 char* word_end(char* str){
 
   while(is_valid_character(*str) == 1){
@@ -52,6 +55,8 @@ char* word_end(char* str){
     
 }
 
+//counts how many words are in a string to determine how many rows to allocate for our
+//char** argtok funtion
 int count_words(char* str){
 
   int counter = 0;
@@ -64,6 +69,7 @@ int count_words(char* str){
   return counter;
 }
 
+//go through the array of pointers created and print each string stored in the array
 void print_tokens(char**str){
 
   
@@ -83,7 +89,7 @@ void print_tokens(char**str){
 
 
 
-
+//free all the tokens in the char** created by argtok()
 void free_tokens(char**str){
 
   

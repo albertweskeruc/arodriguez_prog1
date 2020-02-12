@@ -12,11 +12,11 @@ char* UI(int length); //this reads the user input by using fgets()
 
 int main(){
 
-   int MAX = 200;
+  int MAX = 200; //buffer size
    
    
    int i = 1; 
-   char UserInput[MAX];
+   char UserInput[MAX]; 
    
    while(i){
      
@@ -52,16 +52,18 @@ char* UI(int length){
   char UserInput[length];
   char* temp1;
   char* temp2;
-  char* temp3; // this variable will keep track of each character the user inputs until the user
-               //hits enter
+  char* temp3; // this pointer will traverse UserInput to the end of the string to replace '\n'
+               //with '\0'
   int actual_size = 1;
   fgets(UserInput,length,stdin);
   temp3 = UserInput;
+  
   while(*temp3 != '\n'){
     temp3++;
     actual_size++;
   }
   *temp3 = '\0';
+  
   char* point = (char *)malloc(actual_size * (sizeof(char)));
   temp1 = UserInput; // variable will go traverse the userinput to put into point
   temp2 = point; // variable will traverse point and copy the char of userinput at that position
